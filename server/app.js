@@ -11,6 +11,8 @@ app.use(express.json({extended: false}));
 app.use(express.urlencoded({extended: true}));
 app.set('port', process.env.PORT || config.get('port'));
 
+app.use('/api/auth', require('./routes/auth'));
+
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
