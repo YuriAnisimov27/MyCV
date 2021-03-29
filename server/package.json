@@ -5,6 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "NODE_ENV= jest",
+    "pretest": "eslint --ignore-path .gitignore .",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix --ext .js,.jsx .",
     "start": "node app.js",
     "server": "nodemon app.js"
   },
@@ -24,11 +27,14 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/eslint-parser": "^7.13.14",
     "@babel/plugin-transform-modules-commonjs": "^7.13.8",
     "chai": "^4.3.4",
     "concurrently": "^6.0.0",
     "eslint": "^7.23.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-html": "^6.1.2",
     "eslint-plugin-import": "^2.22.1",

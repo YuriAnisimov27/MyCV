@@ -1,14 +1,14 @@
 const express = require('express');
+const config = require('config');
 const morgan = require('morgan');
 const cors = require('cors');
-const config = require('config');
 
 const app = express();
 
 app.use(morgan('short'));
 app.use(cors());
-app.use(express.json({extended: false}));
-app.use(express.urlencoded({extended: true}));
+app.use(express.json({ extended: false, limit: '2MB' }));
+app.use(express.urlencoded({ extended: true }));
 app.set('port', process.env.PORT || config.get('port'));
 
 app.use('/api/auth', require('./routes/auth'));
